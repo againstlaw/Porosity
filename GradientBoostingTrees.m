@@ -162,8 +162,6 @@ h.TickLabelInterpreter = 'none';
 
 
 
-
-
 view(Mdl.Trained{10},'mode','graph')   % graphic description
 
 
@@ -241,10 +239,7 @@ figure;
 ax = plotPartialDependence(Mdl,{'Slag','CuringDays'},GGBS);
 
 
-
-
 % print(figure(1), '-dtiff', 'myfigure.tiff','-r600');
-
 
 
 
