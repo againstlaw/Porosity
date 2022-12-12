@@ -17,7 +17,6 @@ predictornames = Tbl.Properties.VariableNames(1:end-1);
 y = Tbl.Porosity;
 
 
-
 idxTrain = data.Training;
 idxTest = ~idxTrain;
 
@@ -28,7 +27,6 @@ yTrain = y(idxTrain);
 
 dataTest = Tbl(idxTest,:);
 yTest = y(idxTest);
-
 
 
 
@@ -123,7 +121,6 @@ MAPE = sum(abs((yTest-yTest_pred)./yTest))/N*100
 
 
 
-
 figure;
 plot(yTest,yTest_pred,'bo');
 hold on
@@ -131,7 +128,6 @@ plot(yTest,yTest,'r','linewidth',2);
 xlabel('Observed Response','FontSize',12);
 ylabel('Fitted Response','FontSize',12);
 title('Porosity','FontSize',12);
-
 
 
 figure;
@@ -143,7 +139,6 @@ xlabel('Observed Response','FontSize',12);
 ylabel('Fitted Response','FontSize',12);
 title('Porosity','FontSize',12);
 legend({'Test','Train'},'FontSize',12,'Location','Southeast')
-
 
 
 imp = predictorImportance(Mdl);
@@ -174,7 +169,6 @@ figure;
 plot(L);
 xlabel('Number of trees');
 ylabel('Cross-validated MSE');
-
 
 
 
@@ -221,11 +215,6 @@ figure;
 plotPartialDependence(Mdl,'FlyAsh',FAC)
 
 
-% figure;
-% pt = linspace(min(FAC.CuringDays),max(FAC.CuringDays),50)';
-% pt2 = linspace(min(FAC.FlyAsh),max(FAC.FlyAsh),50)';
-% ax = plotPartialDependence(Mdl,{'FlyAsh','CuringDays'},FAC,'QueryPoints',{pt2,pt});
-% view(140,30) % Modify the viewing angle
 
 figure;
 plotPartialDependence(Mdl,{'FlyAsh','CuringDays'},FAC)
